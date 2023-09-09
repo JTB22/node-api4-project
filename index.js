@@ -1,6 +1,7 @@
+const env = require("dotenv").config();
 const express = require("express");
 const server = express();
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 9001;
 
 const router = require("./api/server.js");
 
