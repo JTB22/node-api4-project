@@ -16,6 +16,28 @@ function getUserBase() {
   return usernames;
 }
 
+function registerUser(username, password) {
+  const id = userBase.length + 1;
+  const newUser = { id, username, password };
+  const existingUser = userBase.find((user) => user.username === username);
+  if (existingUser) {
+    return null;
+  }
+  userBase.push(newUser);
+  return newUser;
+}
+
+function loginUser(username, password) {
+  const existingUser = userBase.find((user) => user.username === username);
+  if (existingUser && existingUser.password === password) {
+    return existingUser;
+  } else {
+    return null;
+  }
+}
+
 module.exports = {
   getUserBase,
+  registerUser,
+  loginUser,
 };
